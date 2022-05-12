@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220511 04:06:32.259" rpa="false" schemaversion="2">
+<suite id="s1" name="Car Dealer" source="C:\Users\phamd\Desktop\Robot\9.car_dealer\car_dealer">
+<suite id="s1-s1" name="Car Dealer" source="C:\Users\phamd\Desktop\Robot\9.car_dealer\car_dealer\car_dealer.robot">
+<kw name="Start Container" type="SETUP">
+<kw name="Log" library="BuiltIn">
+<arg>Starting container</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220511 04:06:33.252" level="INFO">Starting container</msg>
+<status status="PASS" starttime="20220511 04:06:33.251" endtime="20220511 04:06:33.252"/>
+</kw>
+<kw name="Run Process" library="Process">
+<arg>docker-compose</arg>
+<arg>up</arg>
+<arg>--detach</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220511 04:06:33.253" level="INFO">Starting process:
+docker-compose up --detach</msg>
+<msg timestamp="20220511 04:06:33.262" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220511 04:06:37.946" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20220511 04:06:33.252" endtime="20220511 04:06:37.946"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:33.250" endtime="20220511 04:06:37.947"/>
+</kw>
+<test id="s1-s1-t1" name="Test open BROWSER and click to add">
+<kw name="Open WebPage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220511 04:06:37.953" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000'.</msg>
+<status status="PASS" starttime="20220511 04:06:37.952" endtime="20220511 04:06:41.519"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220511 04:06:41.519" endtime="20220511 04:06:41.768"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>first-screenshot.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220511 04:06:41.945" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="first-screenshot.png"&gt;&lt;img src="first-screenshot.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220511 04:06:41.768" endtime="20220511 04:06:41.945"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:37.950" endtime="20220511 04:06:41.946"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:37.948" endtime="20220511 04:06:41.949"/>
+</test>
+<test id="s1-s1-t2" name="Add three cars">
+<kw name="Add cars">
+<arg>${CarName}[0]</arg>
+<arg>${CarModel}[0]</arg>
+<arg>${CarMiliage}[0]</arg>
+<arg>${CarYear}[0]</arg>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://localhost:3000/add</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220511 04:06:41.958" level="INFO">Opening url 'http://localhost:3000/add'</msg>
+<status status="PASS" starttime="20220511 04:06:41.957" endtime="20220511 04:06:42.221"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>make-input</arg>
+<arg>${CarName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:42.226" level="INFO">Typing text 'TESLA' into text field 'make-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:42.224" endtime="20220511 04:06:42.541"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>model-input</arg>
+<arg>${CarModel}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:42.542" level="INFO">Typing text 'Electric' into text field 'model-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:42.541" endtime="20220511 04:06:42.803"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>mileage-input</arg>
+<arg>${CarMiliage}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:42.805" level="INFO">Typing text '2020' into text field 'mileage-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:42.803" endtime="20220511 04:06:43.056"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year-input</arg>
+<arg>${CarYear}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:43.057" level="INFO">Typing text '2018' into text field 'year-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:43.057" endtime="20220511 04:06:43.299"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Add a new car</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:43.300" level="INFO">Clicking button 'Add a new car'.</msg>
+<status status="PASS" starttime="20220511 04:06:43.299" endtime="20220511 04:06:43.434"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:41.955" endtime="20220511 04:06:43.435"/>
+</kw>
+<kw name="Add cars">
+<arg>${CarName}[1]</arg>
+<arg>${CarModel}[1]</arg>
+<arg>${CarMiliage}[1]</arg>
+<arg>${CarYear}[1]</arg>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://localhost:3000/add</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220511 04:06:43.440" level="INFO">Opening url 'http://localhost:3000/add'</msg>
+<status status="PASS" starttime="20220511 04:06:43.440" endtime="20220511 04:06:43.597"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>make-input</arg>
+<arg>${CarName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:43.599" level="INFO">Typing text 'HYNDAI' into text field 'make-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:43.597" endtime="20220511 04:06:43.874"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>model-input</arg>
+<arg>${CarModel}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:43.876" level="INFO">Typing text 'Gas' into text field 'model-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:43.875" endtime="20220511 04:06:44.129"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>mileage-input</arg>
+<arg>${CarMiliage}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:44.131" level="INFO">Typing text '2011' into text field 'mileage-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:44.129" endtime="20220511 04:06:44.353"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year-input</arg>
+<arg>${CarYear}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:44.354" level="INFO">Typing text '2021' into text field 'year-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:44.353" endtime="20220511 04:06:44.568"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Add a new car</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:44.569" level="INFO">Clicking button 'Add a new car'.</msg>
+<status status="PASS" starttime="20220511 04:06:44.569" endtime="20220511 04:06:44.691"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:43.436" endtime="20220511 04:06:44.691"/>
+</kw>
+<kw name="Add cars">
+<arg>${CarName}[2]</arg>
+<arg>${CarModel}[2]</arg>
+<arg>${CarMiliage}[2]</arg>
+<arg>${CarYear}[2]</arg>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://localhost:3000/add</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220511 04:06:44.696" level="INFO">Opening url 'http://localhost:3000/add'</msg>
+<status status="PASS" starttime="20220511 04:06:44.695" endtime="20220511 04:06:44.878"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>make-input</arg>
+<arg>${CarName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:44.880" level="INFO">Typing text 'TOYOTA' into text field 'make-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:44.879" endtime="20220511 04:06:45.171"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>model-input</arg>
+<arg>${CarModel}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:45.174" level="INFO">Typing text 'AGAS' into text field 'model-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:45.172" endtime="20220511 04:06:45.390"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>mileage-input</arg>
+<arg>${CarMiliage}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:45.392" level="INFO">Typing text '2015' into text field 'mileage-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:45.391" endtime="20220511 04:06:45.633"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year-input</arg>
+<arg>${CarYear}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:45.634" level="INFO">Typing text '2022' into text field 'year-input'.</msg>
+<status status="PASS" starttime="20220511 04:06:45.633" endtime="20220511 04:06:45.877"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Add a new car</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220511 04:06:45.879" level="INFO">Clicking button 'Add a new car'.</msg>
+<status status="PASS" starttime="20220511 04:06:45.878" endtime="20220511 04:06:46.017"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:44.692" endtime="20220511 04:06:46.018"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:41.953" endtime="20220511 04:06:46.019"/>
+</test>
+<kw name="Stop Container" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>second-screenshot.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220511 04:06:46.652" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="second-screenshot.png"&gt;&lt;img src="second-screenshot.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220511 04:06:46.030" endtime="20220511 04:06:46.652"/>
+</kw>
+<kw name="Pause Execution" library="Dialogs">
+<doc>Pauses test execution until user clicks ``Ok`` button.</doc>
+<status status="PASS" starttime="20220511 04:06:46.652" endtime="20220511 04:06:49.912"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220511 04:06:49.914" endtime="20220511 04:06:52.558"/>
+</kw>
+<kw name="Run Process" library="Process">
+<arg>docker-compose</arg>
+<arg>down</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220511 04:06:52.561" level="INFO">Starting process:
+docker-compose down</msg>
+<msg timestamp="20220511 04:06:52.572" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220511 04:07:07.780" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20220511 04:06:52.560" endtime="20220511 04:07:07.781"/>
+</kw>
+<status status="PASS" starttime="20220511 04:06:46.029" endtime="20220511 04:07:07.782"/>
+</kw>
+<doc>Car dealer website test</doc>
+<status status="PASS" starttime="20220511 04:06:32.347" endtime="20220511 04:07:07.782"/>
+</suite>
+<status status="PASS" starttime="20220511 04:06:32.264" endtime="20220511 04:07:07.818"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Car Dealer">Car Dealer</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Car Dealer">Car Dealer.Car Dealer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

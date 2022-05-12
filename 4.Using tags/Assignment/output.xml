@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220412 21:06:22.249" rpa="false" schemaversion="2">
+<suite id="s1" name="Assignment" source="C:\Users\phamd\Desktop\robot ass\4.Using tags\Assignment">
+<suite id="s1-s1" name="Morse" source="C:\Users\phamd\Desktop\robot ass\4.Using tags\Assignment\morse.robot">
+<test id="s1-s1-t1" name="Templated test case">
+<kw name="Turn off WPM and IMM" library="testKeyWord" type="SETUP">
+<arg>OFF</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:22.511" endtime="20220412 21:06:22.516"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:22.516" endtime="20220412 21:06:22.522"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:22.510" endtime="20220412 21:06:22.523"/>
+</kw>
+<kw name="Send check" library="testKeyWord">
+<arg>${speed}</arg>
+<arg>${name}</arg>
+<kw name="Replace String Using Regexp" library="String">
+<var>${ConvertName}</var>
+<arg>${Name}</arg>
+<arg>[^a-zA-Z${SPACE}]</arg>
+<arg>X</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220412 21:06:22.527" level="INFO">${ConvertName} = AnnaXXX</msg>
+<status status="PASS" starttime="20220412 21:06:22.525" endtime="20220412 21:06:22.527"/>
+</kw>
+<kw name="Convert To Upper Case" library="String">
+<var>${ExpectedName}</var>
+<arg>${ConvertName}</arg>
+<doc>Converts string to upper case.</doc>
+<msg timestamp="20220412 21:06:22.529" level="INFO">${ExpectedName} = ANNAXXX</msg>
+<status status="PASS" starttime="20220412 21:06:22.528" endtime="20220412 21:06:22.529"/>
+</kw>
+<kw name="Set Speed" library="MorseDecoderLibrary">
+<arg>${Input_Speed}</arg>
+<status status="PASS" starttime="20220412 21:06:22.529" endtime="20220412 21:06:22.531"/>
+</kw>
+<kw name="Send Text" library="MorseDecoderLibrary">
+<arg>${Name}</arg>
+<status status="PASS" starttime="20220412 21:06:22.532" endtime="20220412 21:06:22.534"/>
+</kw>
+<kw name="Text Should Be" library="MorseDecoderLibrary">
+<arg>${ExpectedName}</arg>
+<status status="PASS" starttime="20220412 21:06:22.535" endtime="20220412 21:06:23.828"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:22.524" endtime="20220412 21:06:23.829"/>
+</kw>
+<kw name="Turn on WPM and IMM" library="testKeyWord" type="TEARDOWN">
+<arg>ON</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.833" endtime="20220412 21:06:23.837"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.838" endtime="20220412 21:06:23.845"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.831" endtime="20220412 21:06:23.847"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:22.508" endtime="20220412 21:06:23.849"/>
+</test>
+<test id="s1-s1-t2" name="Whatever spped">
+<kw name="Turn off WPM and IMM" library="testKeyWord" type="SETUP">
+<arg>OFF</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.855" endtime="20220412 21:06:23.862"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.862" endtime="20220412 21:06:23.868"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.854" endtime="20220412 21:06:23.868"/>
+</kw>
+<kw name="To check with whatever speed" library="testKeyWord">
+<arg>sayhi</arg>
+<kw name="Speed Should Be With Whatever Speed" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<status status="PASS" starttime="20220412 21:06:23.870" endtime="20220412 21:06:23.876"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.869" endtime="20220412 21:06:23.878"/>
+</kw>
+<kw name="Turn on WPM and IMM" library="testKeyWord" type="TEARDOWN">
+<arg>ON</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.882" endtime="20220412 21:06:23.887"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.888" endtime="20220412 21:06:23.893"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.880" endtime="20220412 21:06:23.893"/>
+</kw>
+<tag>Test run with whatever speed</tag>
+<status status="PASS" starttime="20220412 21:06:23.852" endtime="20220412 21:06:23.894"/>
+</test>
+<test id="s1-s1-t3" name="Speed with range 10%">
+<kw name="Turn off WPM and IMM" library="testKeyWord" type="SETUP">
+<arg>OFF</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.899" endtime="20220412 21:06:23.904"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.904" endtime="20220412 21:06:23.909"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.898" endtime="20220412 21:06:23.910"/>
+</kw>
+<kw name="To check speed with range" library="testKeyWord">
+<arg>${speed}</arg>
+<kw name="Speed Should Be With Range" library="MorseDecoderLibrary">
+<arg>${nopues}</arg>
+<status status="PASS" starttime="20220412 21:06:23.913" endtime="20220412 21:06:23.916"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.911" endtime="20220412 21:06:23.917"/>
+</kw>
+<kw name="Turn on WPM and IMM" library="testKeyWord" type="TEARDOWN">
+<arg>ON</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.922" endtime="20220412 21:06:23.926"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.926" endtime="20220412 21:06:23.931"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.920" endtime="20220412 21:06:23.931"/>
+</kw>
+<tag>Test run with speed in range 10%</tag>
+<status status="PASS" starttime="20220412 21:06:23.896" endtime="20220412 21:06:23.932"/>
+</test>
+<test id="s1-s1-t4" name="Expected speed is equal input speed">
+<kw name="Turn off WPM and IMM" library="testKeyWord" type="SETUP">
+<arg>OFF</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.942" endtime="20220412 21:06:23.946"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.947" endtime="20220412 21:06:23.952"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.941" endtime="20220412 21:06:23.953"/>
+</kw>
+<kw name="Comprate input speed with expected speed" library="testKeyWord">
+<arg>${speed}</arg>
+<kw name="Speed Should Be" library="MorseDecoderLibrary">
+<arg>${speed}</arg>
+<msg timestamp="20220412 21:06:23.963" level="FAIL">Expected: 60 got: 62 line: [ WPM: 62 ]</msg>
+<status status="FAIL" starttime="20220412 21:06:23.954" endtime="20220412 21:06:23.963"/>
+</kw>
+<status status="FAIL" starttime="20220412 21:06:23.953" endtime="20220412 21:06:23.966"/>
+</kw>
+<kw name="Turn on WPM and IMM" library="testKeyWord" type="TEARDOWN">
+<arg>ON</arg>
+<kw name="Set Wpm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.970" endtime="20220412 21:06:23.975"/>
+</kw>
+<kw name="Set Imm" library="MorseDecoderLibrary">
+<arg>${controller}</arg>
+<status status="PASS" starttime="20220412 21:06:23.976" endtime="20220412 21:06:23.981"/>
+</kw>
+<status status="PASS" starttime="20220412 21:06:23.969" endtime="20220412 21:06:23.981"/>
+</kw>
+<tag>Test run if expected speed is equal input speed</tag>
+<status status="FAIL" starttime="20220412 21:06:23.937" endtime="20220412 21:06:23.983">Expected: 60 got: 62 line: [ WPM: 62 ]</status>
+</test>
+<doc>Example of morse transmitter test
+
+Change this example to use data driven style
+Test with different texts and speeds</doc>
+<status status="FAIL" starttime="20220412 21:06:22.339" endtime="20220412 21:06:23.986"/>
+</suite>
+<status status="FAIL" starttime="20220412 21:06:22.254" endtime="20220412 21:06:23.997"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Test run if expected speed is equal input speed</stat>
+<stat pass="1" fail="0" skip="0">Test run with speed in range 10%</stat>
+<stat pass="1" fail="0" skip="0">Test run with whatever speed</stat>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Assignment">Assignment</stat>
+<stat pass="3" fail="1" skip="0" id="s1-s1" name="Morse">Assignment.Morse</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

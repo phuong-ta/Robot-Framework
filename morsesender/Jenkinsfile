@@ -1,0 +1,34 @@
+pipeline {
+  agent {
+    node {
+      label 'windows'
+    }
+
+  }
+  stages {
+    stage('Check connect') {
+      steps {
+        echo 'Hello World'
+      }
+    }
+
+    stage('build') {
+      steps {
+        bat 'build.bat'
+      }
+    }
+
+    stage('flash') {
+      steps {
+        bat 'flash.bat'
+      }
+    }
+
+    stage('test') {
+      steps {
+        bat 'robot morse.robot'
+      }
+    }
+
+  }
+}

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220325 21:12:02.064" rpa="false" schemaversion="2">
+<suite id="s1" name="18.3" source="C:\Users\phamd\Desktop\robot ass\18.3">
+<suite id="s1-s1" name="Test" source="C:\Users\phamd\Desktop\robot ass\18.3\test.robot">
+<test id="s1-s1-t1" name="Try to print a list">
+<kw name="Words" library="FakerLibrary">
+<var>${names}</var>
+<doc>Generate a tuple of words.</doc>
+<msg timestamp="20220325 21:12:03.576" level="INFO">${names} = ['temporibus', 'dolor', 'esse']</msg>
+<status status="PASS" starttime="20220325 21:12:03.575" endtime="20220325 21:12:03.576"/>
+</kw>
+<kw name="Get Random Names">
+<arg>${names}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${word}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220325 21:12:03.580" level="INFO">['temporibus', 'dolor', 'esse']</msg>
+<status status="PASS" starttime="20220325 21:12:03.579" endtime="20220325 21:12:03.580"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<arg>${word}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220325 21:12:03.581" level="INFO">Length is 3</msg>
+<status status="PASS" starttime="20220325 21:12:03.581" endtime="20220325 21:12:03.581"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:03.578" endtime="20220325 21:12:03.582"/>
+</kw>
+<kw name="Remove Existing Address File">
+<arg>${file2}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file2Content}</var>
+<arg>${file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220325 21:12:03.584" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part2.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part2.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220325 21:12:03.586" level="INFO">${file2Content} = name: phuong
+name: phuong123abc</msg>
+<status status="PASS" starttime="20220325 21:12:03.583" endtime="20220325 21:12:03.586"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>${readContent}</var>
+<arg>${file2Content}</arg>
+<arg>0</arg>
+<arg>1</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20220325 21:12:03.588" level="INFO">1 lines returned</msg>
+<msg timestamp="20220325 21:12:03.588" level="INFO">${readContent} = ['name: phuong']</msg>
+<status status="PASS" starttime="20220325 21:12:03.586" endtime="20220325 21:12:03.588"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${file}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220325 21:12:03.589" level="INFO">part2.txt</msg>
+<status status="PASS" starttime="20220325 21:12:03.589" endtime="20220325 21:12:03.590"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${readContent}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220325 21:12:03.591" level="INFO">['name: phuong']</msg>
+<status status="PASS" starttime="20220325 21:12:03.590" endtime="20220325 21:12:03.591"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:03.582" endtime="20220325 21:12:03.591"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:03.574" endtime="20220325 21:12:03.592"/>
+</test>
+<test id="s1-s1-t2" name="Create and add content to new file, then check address and remove file.">
+<kw name="Remove an existing file">
+<kw name="Should Not Exist" library="OperatingSystem">
+<var>${removeFile}</var>
+<arg>${file3}</arg>
+<doc>Fails if the given path (file or directory) exists.</doc>
+<msg timestamp="20220325 21:12:03.606" level="INFO" html="true">Path '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;' does not exist.</msg>
+<msg timestamp="20220325 21:12:03.606" level="INFO">${removeFile} = None</msg>
+<status status="PASS" starttime="20220325 21:12:03.604" endtime="20220325 21:12:03.606"/>
+</kw>
+<if>
+<branch type="IF" condition="${removeFile}">
+<kw name="Log" library="BuiltIn">
+<arg>Can not found this file</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220325 21:12:03.607" endtime="20220325 21:12:03.607"/>
+</kw>
+<status status="NOT RUN" starttime="20220325 21:12:03.607" endtime="20220325 21:12:03.607"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>check code again!</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220325 21:12:03.608" level="INFO">check code again!</msg>
+<status status="PASS" starttime="20220325 21:12:03.608" endtime="20220325 21:12:03.608"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:03.608" endtime="20220325 21:12:03.608"/>
+</branch>
+<status status="PASS" starttime="20220325 21:12:03.606" endtime="20220325 21:12:03.609"/>
+</if>
+<status status="PASS" starttime="20220325 21:12:03.602" endtime="20220325 21:12:03.609"/>
+</kw>
+<kw name="Create new file with content">
+<kw name="Name" library="FakerLibrary">
+<var>${user1}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220325 21:12:03.613" level="INFO">${user1} = Helena Väisänen</msg>
+<status status="PASS" starttime="20220325 21:12:03.611" endtime="20220325 21:12:03.613"/>
+</kw>
+<kw name="Name Female" library="FakerLibrary">
+<var>${user2}</var>
+<msg timestamp="20220325 21:12:03.615" level="INFO">${user2} = Leena Koskinen-Laitinen</msg>
+<status status="PASS" starttime="20220325 21:12:03.614" endtime="20220325 21:12:03.616"/>
+</kw>
+<kw name="Name Male" library="FakerLibrary">
+<var>${user3}</var>
+<msg timestamp="20220325 21:12:03.617" level="INFO">${user3} = Kalevi Salonen</msg>
+<status status="PASS" starttime="20220325 21:12:03.616" endtime="20220325 21:12:03.617"/>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<var>${user4}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220325 21:12:03.619" level="INFO">${user4} = Johannes Hämäläinen</msg>
+<status status="PASS" starttime="20220325 21:12:03.618" endtime="20220325 21:12:03.619"/>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<var>${user5}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220325 21:12:03.622" level="INFO">${user5} = Marja Taskinen</msg>
+<status status="PASS" starttime="20220325 21:12:03.621" endtime="20220325 21:12:03.622"/>
+</kw>
+<kw name="Street Address" library="FakerLibrary">
+<var>${street}</var>
+<doc>:example: '791 Crist Parks'</doc>
+<msg timestamp="20220325 21:12:03.624" level="INFO">${street} = Orisaarenbulevardi 72</msg>
+<status status="PASS" starttime="20220325 21:12:03.623" endtime="20220325 21:12:03.624"/>
+</kw>
+<kw name="Postcode" library="FakerLibrary">
+<var>${postcode}</var>
+<doc>:example: 86039-9874</doc>
+<msg timestamp="20220325 21:12:03.628" level="INFO">${postcode} = 21409</msg>
+<status status="PASS" starttime="20220325 21:12:03.625" endtime="20220325 21:12:03.629"/>
+</kw>
+<kw name="City" library="FakerLibrary">
+<var>${city}</var>
+<doc>:example: 'Sashabury'</doc>
+<msg timestamp="20220325 21:12:03.631" level="INFO">${city} = Tampere</msg>
+<status status="PASS" starttime="20220325 21:12:03.630" endtime="20220325 21:12:03.631"/>
+</kw>
+<kw name="Get Selection From User" library="Dialogs">
+<var>${showName}</var>
+<arg>Choose one name</arg>
+<arg>${user1}</arg>
+<arg>${user2}</arg>
+<arg>${user3}</arg>
+<arg>${user4}</arg>
+<arg>${user5}</arg>
+<doc>Pauses test execution and asks user to select a value.</doc>
+<msg timestamp="20220325 21:12:06.448" level="INFO">${showName} = Helena Väisänen</msg>
+<status status="PASS" starttime="20220325 21:12:03.631" endtime="20220325 21:12:06.448"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>${file3}</arg>
+<arg>${showName}\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220325 21:12:06.452" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220325 21:12:06.449" endtime="20220325 21:12:06.452"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${file3}</arg>
+<arg>${street}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220325 21:12:06.458" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220325 21:12:06.452" endtime="20220325 21:12:06.458"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${file3}</arg>
+<arg>${postcode}\n</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220325 21:12:06.464" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220325 21:12:06.459" endtime="20220325 21:12:06.464"/>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<arg>${file3}</arg>
+<arg>${city}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<msg timestamp="20220325 21:12:06.466" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220325 21:12:06.464" endtime="20220325 21:12:06.467"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:03.610" endtime="20220325 21:12:06.467"/>
+</kw>
+<kw name="Check address and remove file">
+<kw name="Get File" library="OperatingSystem">
+<var>${file3Content}</var>
+<arg>${file3}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220325 21:12:06.481" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220325 21:12:06.493" level="INFO">${file3Content} = Helena Väisänen
+Orisaarenbulevardi 72
+21409
+Tampere</msg>
+<status status="PASS" starttime="20220325 21:12:06.480" endtime="20220325 21:12:06.493"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>${readContent}</var>
+<arg>${file3Content}</arg>
+<arg>1</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20220325 21:12:06.495" level="INFO">3 lines returned</msg>
+<msg timestamp="20220325 21:12:06.497" level="INFO">${readContent} = ['Orisaarenbulevardi 72', '21409', 'Tampere']</msg>
+<status status="PASS" starttime="20220325 21:12:06.494" endtime="20220325 21:12:06.497"/>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<arg>${file3}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220325 21:12:06.499" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\phamd\Desktop\robot ass\18.3\part3.txt"&gt;C:\Users\phamd\Desktop\robot ass\18.3\part3.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220325 21:12:06.497" endtime="20220325 21:12:06.499"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:06.478" endtime="20220325 21:12:06.499"/>
+</kw>
+<status status="PASS" starttime="20220325 21:12:03.599" endtime="20220325 21:12:06.509"/>
+</test>
+<status status="PASS" starttime="20220325 21:12:02.159" endtime="20220325 21:12:06.519"/>
+</suite>
+<status status="PASS" starttime="20220325 21:12:02.071" endtime="20220325 21:12:06.531"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="18.3">18.3</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Test">18.3.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

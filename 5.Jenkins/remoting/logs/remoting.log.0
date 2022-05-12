@@ -1,0 +1,6 @@
+Apr 29, 2022 9:08:30 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+INFO: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
+Apr 29, 2022 9:08:30 AM org.jenkinsci.remoting.protocol.impl.BIONetworkLayer$Reader run
+INFO: Waiting for ProtocolStack to start.
+Apr 29, 2022 10:46:51 AM org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFO: Failed to connect to the controller. Will try again: java.net.ConnectException Connection refused: connect

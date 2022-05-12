@@ -1,0 +1,6 @@
+swm_15xx.h:232:20:void Chip_SWM_MovablePortPinAssign(CHIP_SWM_PIN_MOVABLE_T, uint8_t, uint8_t)	16	static
+MorseSender.cpp:38:5:int main()	24	static
+MorseSender.cpp:77:6:void morse_symbol(char, int)	32	static
+MorseSender.cpp:110:6:void morse_send(const char*, int)	24	static
+MorseSender.cpp:120:6:void send_test(int)	16	static
+MorseSender.cpp:141:6:void vUartTask(void*)	624	static
